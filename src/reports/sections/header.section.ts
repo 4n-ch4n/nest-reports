@@ -16,20 +16,40 @@ interface HeaderOptions {
   showDate?: boolean;
 }
 
+const currentDate: Content = {
+  text: DateFormatter.getMMDDYYYY(new Date()),
+  alignment: 'right',
+  margin: [20, 20],
+};
+
 export const headerSection = (options: HeaderOptions): Content => {
   const { title, subTitle, showDate = true, showLogo = true } = options;
 
   const headerLogo: Content = showLogo ? logo : '';
-  const headerDate: Content = showDate
+  const headerDate: Content = showDate ? currentDate : '';
+
+  const headerSubTitle: Content = subTitle
     ? {
-        text: DateFormatter.getMMDDYYYY(new Date()),
-        alignment: 'right',
-        margin: [20, 45, 20, 20],
+        text: subTitle,
+        margin: [0, 2, 0, 0],
+        style: { bold: true, fontSize: 16 },
+        alignment: 'center',
       }
     : '';
 
   const headerTitle: Content = title
-    ? { text: title, style: { bold: true } }
+    ? {
+        stack: [
+          {
+            text: title,
+            alignment: 'center',
+            margin: [0, 15, 0, 0],
+            style: { bold: true, fontSize: 22 },
+          },
+          headerSubTitle,
+        ],
+        // text: title, style: { bold: true }
+      }
     : '';
 
   return {
