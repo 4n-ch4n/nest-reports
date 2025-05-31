@@ -87,6 +87,8 @@ src/
   store-reports/      # (Additional report modules)
 prisma/
   schema.prisma       # Prisma schema
+queries/              # SQL scripts for seeding/testing
+fonts/                # Fonts for pdfmake
 ```
 
 ---
