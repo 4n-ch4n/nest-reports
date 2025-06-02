@@ -3,8 +3,8 @@ import type { Content } from 'pdfmake/interfaces';
 
 const logo: Content = {
   image: 'src/assets/logo.png',
-  width: 170,
-  height: 170,
+  width: 130,
+  height: 130,
   alignment: 'center',
   margin: [0, -20, 0, 20],
 };
@@ -32,7 +32,7 @@ export const headerSection = (options: HeaderOptions): Content => {
     ? {
         text: subTitle,
         margin: [0, 2, 0, 0],
-        style: { bold: true, fontSize: 16 },
+        style: { fontSize: 16 },
         alignment: 'center',
       }
     : '';

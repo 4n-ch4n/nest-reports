@@ -14,6 +14,7 @@ A NestJS backend for generating and streaming PDF reports (employment letters, c
 - Stream PDFs directly to the client
 - Modular structure with dependency injection
 - Prisma ORM for PostgreSQL database access
+- Organized report definitions and helpers
 
 ---
 
@@ -68,10 +69,18 @@ A NestJS backend for generating and streaming PDF reports (employment letters, c
 - `GET /basic-reports/countries?continent=Europe`  
   Download a PDF report of countries filtered by continent.
 
+- `GET /store-reports/order/:orderId`  
+  Download a PDF receipt for a store order by order ID.
+
+- `GET /store-reports/statistics`  
+  Download a PDF with store statistics.
+
 ### Example Request
 
 ```sh
 curl http://localhost:3000/basic-reports/employment-letter/1 --output employment-letter.pdf
+curl "http://localhost:3000/basic-reports/countries?continent=Europe" --output countries.pdf
+curl http://localhost:3000/store-reports/order/1 --output order-receipt.pdf
 ```
 
 ---
